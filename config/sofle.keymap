@@ -11,6 +11,7 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/rgb.h>
+#include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/ext_power.h>
 
 #define BASE   0
@@ -103,18 +104,18 @@
 
         adjust_layer {
             display-name = "Adjust";
-// ╭─────────┬─────────┬─────────┬─────────┬─────────┬─────────╮                   ╭──────┬──────┬──────┬──────┬───────┬───────╮
-// │ STUDIO  │  BT1    │  BT2    │   BT3   │   BT4   │   BT5   │                   │      │      │      │      │ BTCLR │       │
-// │ EXTPWR  │ RGB_HUD │ RGB_HUI │ RGB_SAD │ RGB_SAI │ RGB_EFF │                   │      │      │      │      │       │       │
-// │ BOOTLDR │ RGB_BRD │ RGB_BRI │ RGB_SPI │ RGB_SPD │ SYS RST │                   │      │      │      │      │       │       │
-// │         │         │         │         │         │         │ RGB_TOG │ │       │      │      │      │      │       │       │
+// ╭─────────┬─────────┬─────────┬─────────┬─────────┬─────────╮                   ╭──────┬──────┬──────┬──────┬──────┬───────╮
+// │ STUDIO  │   F1    │   F2    │   F3    │   F4    │   F5    │                   │  F6  │  F7  │  F8  │  F9  │ F10  │       │
+// │ EXTPWR  │ RGB_HUD │ RGB_HUI │ RGB_SAD │ RGB_SAI │ RGB_EFF │                   │      │      │      │      │      │       │
+// │ BOOTLDR │ RGB_BRD │ RGB_BRI │ RGB_SPI │ RGB_SPD │ SYS RST │                   │      │      │      │      │      │       │
+// │  BT0    │  BT1    │  BT2    │  BT3    │  BT4    │         │ RGB_TOG │ │       │ BTCLR│BTCLRA│  USB │  BLE │ BOOT │       │
 //                     │         │         │         │         │         │ │       │      │      │      │      │
             bindings = <
-&studio_unlock    &bt BT_SEL 0    &bt BT_SEL 1    &bt BT_SEL 2    &bt BT_SEL 3    &bt BT_SEL 4                                  &none &none &none &none &bt BT_CLR &none
-&ext_power EP_TOG &rgb_ug RGB_HUD &rgb_ug RGB_HUI &rgb_ug RGB_SAD &rgb_ug RGB_SAI &rgb_ug RGB_EFF                               &none &none &none &none &none      &none
-&bootloader       &rgb_ug RGB_BRD &rgb_ug RGB_BRI &rgb_ug RGB_SPI &rgb_ug RGB_SPD &sys_reset                                    &none &none &none &none &none      &none
-&none             &none           &none           &none           &none           &none            &rgb_ug RGB_TOG    &none     &none &none &none &none &none      &none
-                                  &none           &none           &none           &none            &none              &none     &none &none &none &none
+&studio_unlock    &kp F1          &kp F2          &kp F3          &kp F4          &kp F5                                          &kp F6     &kp F7         &kp F8        &kp F9       &kp F10     &none
+&ext_power EP_TOG &rgb_ug RGB_HUD &rgb_ug RGB_HUI &rgb_ug RGB_SAD &rgb_ug RGB_SAI &rgb_ug RGB_EFF                                 &none      &none          &none         &none        &none       &none
+&bootloader       &rgb_ug RGB_BRD &rgb_ug RGB_BRI &rgb_ug RGB_SPI &rgb_ug RGB_SPD &sys_reset                                      &none      &none          &none         &none        &none       &none
+&bt BT_SEL 0      &bt BT_SEL 1    &bt BT_SEL 2    &bt BT_SEL 3    &bt BT_SEL 4    &none            &rgb_ug RGB_TOG    &none       &bt BT_CLR &bt BT_CLR_ALL &out OUT_USB  &out OUT_BLE &bootloader &none
+                                  &none           &none           &none           &none            &none              &none       &none      &none          &none         &none
             >;
 
             // Enkodery na ADJUST sterują RGB
