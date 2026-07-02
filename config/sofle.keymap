@@ -1,10 +1,10 @@
 /*
  * Sofle FT keymap
  *
- * 58 klawiszy (5+1 thumb na połówkę), oba enkodery, per-key RGB (30 LED/strona)
- * 4 warstwy: BASE, LOWER, RAISE, ADJUST (LOWER+RAISE)
- * Kompatybilne z OLED i nice!view (firmware buduje się oddzielnie dla obu)
- * Kompatybilne z ZMK Studio
+ * 58 keys (5+1 thumb keys per half), both encoders, per-key RGB (30 LEDs/side)
+ * 4 layers: BASE, LOWER, RAISE, ADJUST (LOWER+RAISE)
+ * Compatible with OLED and nice!view (firmware is built separately for both)
+ * Compatible with ZMK Studio
  */
 
 #include <behaviors.dtsi>
@@ -20,17 +20,17 @@
 #define ADJUST 3
 
 /*
- * Override chain-length: shield Sofle ma domyślnie 36 (6 underglow + 30 per-key).
- * My nie używamy underglow - mamy tylko 30 per-key na każdą stronę.
+ * Override chain-length: the Sofle shield defaults to 36 (6 underglow + 30 per-key).
+ * We do not use underglow - only 30 per-key LEDs per side.
  */
 &led_strip {
     chain-length = <30>;
 };
 
 /*
- * Włącz oba enkodery - shield zostawia je w stanie "disabled" domyślnie.
- * Każda połówka aktywuje swój własny enkoder podczas runtime, więc oba
- * deklarujemy jako okay - ZMK sam wybierze ten odpowiedni dla danej strony.
+ * Enable both encoders - the shield leaves them "disabled" by default.
+ * Each half enables its own encoder at runtime, so both are declared as okay.
+ * ZMK will select the appropriate one for each side.
  */
 &left_encoder {
     status = "okay";
@@ -41,7 +41,7 @@
 };
 
 / {
-    // ADJUST aktywuje się gdy oba LOWER i RAISE są wciśnięte
+    // ADJUST activates when both LOWER and RAISE are held.
     conditional_layers {
         compatible = "zmk,conditional-layers";
         adjust_layer {
@@ -71,7 +71,7 @@
                  &kp LGUI &kp LALT &kp LCTRL &mo LOWER  &kp RET             &kp SPACE     &mo RAISE &kp RCTRL &kp RALT  &kp RGUI
             >;
 
-            // Lewy enkoder: VOL UP/DOWN; prawy: PG UP/DOWN
+            // Left encoder: VOL UP/DOWN; right encoder: PG UP/DOWN.
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
         };
 
@@ -85,7 +85,7 @@
                     &trans    &trans   &trans   &trans      &trans              &trans       &trans    &trans   &trans    &trans
             >;
 
-            // Enkoder: skok strony (zachowanie z oryginału)
+            // Encoder: page movement (original behavior).
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
         };
 
@@ -118,7 +118,7 @@
                                   &none           &none           &none           &none            &none              &none       &none      &none          &none         &none
             >;
 
-            // Enkodery na ADJUST sterują RGB
+            // Encoders on ADJUST control RGB.
             sensor-bindings = <&inc_dec_kp C_BRI_UP C_BRI_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
     };

@@ -1,28 +1,28 @@
-# Sofle FT - buduje 5 firmware:
-#   - lewa OLED + Studio
-#   - lewa nice!view + Studio
-#   - prawa OLED
-#   - prawa nice!view
-#   - settings_reset (do wyczyszczenia BLE)
+# Sofle FT - builds 5 firmware files:
+#   - left OLED + Studio
+#   - left nice!view + Studio
+#   - right OLED
+#   - right nice!view
+#   - settings_reset (for clearing BLE)
 #
-# Wybierasz UF2 do flashowania w zależności od tego co masz fizycznie podlutowane.
+# Choose the UF2 to flash based on what is physically soldered.
 ---
 include:
-  # Lewa z OLED
+  # Left with OLED
   - board: nice_nano//zmk
     shield: sofle_left
     snippet: studio-rpc-usb-uart
     artifact-name: sofle_left_oled
-  # Lewa z nice!view
+  # Left with nice!view
   - board: nice_nano//zmk
     shield: sofle_left nice_view_adapter nice_view
     snippet: studio-rpc-usb-uart
     artifact-name: sofle_left_niceview
-  # Prawa z OLED
+  # Right with OLED
   - board: nice_nano//zmk
     shield: sofle_right
     artifact-name: sofle_right_oled
-  # Prawa z nice!view
+  # Right with nice!view
   - board: nice_nano//zmk
     shield: sofle_right nice_view_adapter nice_view
     artifact-name: sofle_right_niceview
