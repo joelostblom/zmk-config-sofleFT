@@ -63,7 +63,7 @@
 &kp DELETE  &kp Q   &kp W     &kp E         &kp R             &kp T                                                &kp Y                   &kp U             &kp I          &kp O     &kp P     &kp EQUAL
 &kp TAB     &kp A   &kp S     &kp D         &kp F             &kp G                                                &kp H                   &kp J             &kp K          &kp L     &kp SEMI  &kp SQT
 &kp LSHFT   &kp Z   &kp X     &kp C         &kp V             &kp B                 &kp C_MUTE    &none            &kp N                   &kp M             &kp COMMA      &kp DOT   &kp FSLH  &kp BACKSLASH
-                    &kp LALT  &kp LEFT_GUI  &mt LCTRL ESCAPE  &mt LEFT_SHIFT SPACE  &lt 1 TAB     &lt 2 BACKSPACE  &mt RIGHT_SHIFT RETURN  &mt RCTRL ESCAPE  &kp RIGHT_GUI  &kp RALT
+                    &kp LALT  &kp LEFT_GUI  &mt LCTRL ESCAPE  &lt 1 SPACE  &mt LEFT_SHIFT TAB     &mt RIGHT_SHIFT BACKSPACE  &lt 2 RETURN  &mt RCTRL ESCAPE  &kp RIGHT_GUI  &kp RALT
             >;
 
             // Encoder: left firmware uses volume, right firmware uses page movement.
