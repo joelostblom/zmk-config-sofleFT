@@ -122,7 +122,7 @@
     };
 };
 
-#ifdef CONFIG_ZMK_SPLIT_ROLE_PERIPHERAL
+#ifdef SHIELD_SOFLE_RIGHT
 &default_layer {
     sensor-bindings = <&inc_dec_kp PG_UP PG_DN>;
 };
